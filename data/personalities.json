@@ -1,0 +1,57 @@
+[
+    {
+      "id": 1,
+      "name": "Insta Icon",
+      "primary_trait": "creativity",
+      "secondary_trait": "extroversion",
+      "description": "You're the trendsetter everyone follows! Your posts go viral effortlessly, and you've got a knack for turning everyday moments into aesthetic bangers. Your vibe screams confidence, and your DMs are always popping.",
+      "main_character_moment": "Dropping a reel that gets a million views overnight, with even celebs sliding into your comments.",
+      "compatible_with": ["Desi Drama Star", "Tech-Savvy Jugaadu", "Street Smart Hustler"],
+      "red_flag_type": "Attention Addict",
+      "avatar_animation": "https://lottie.host/4e6ac0f9-06ac-470e-9a46-0fca6c90b6f8/qHubxFEYUW.json"
+    },
+    {
+      "id": 2,
+      "name": "Chai & Chill Master",
+      "primary_trait": "empathy",
+      "secondary_trait": "adaptability",
+      "description": "You're the ultimate comfort zone for your squad. Always ready with a cup of chai and the best advice, you keep the vibes mellow and the heart-to-hearts real. You know how to roll with life's punches.",
+      "main_character_moment": "Hosting a late-night chai session where everyone spills their deepest secrets, feeling totally safe.",
+      "compatible_with": ["Insta Icon", "Desi Drama Star", "Tech-Savvy Jugaadu"],
+      "red_flag_type": "Overly Passive Pal",
+      "avatar_animation": "https://lottie.host/b2ce5b8e-62cb-4b6f-9ce6-8e8b8c8e8c8e/TeaCupAnimation.json"
+    },
+    {
+      "id": 3,
+      "name": "Street Smart Hustler",
+      "primary_trait": "ambition",
+      "secondary_trait": "adaptability",
+      "description": "You're the go-getter who knows every shortcut in the game. From scoring deals to making quick fixes, you've got the hustle down pat. No obstacle is too big for your desi jugaad mindset.",
+      "main_character_moment": "Turning a side gig into a full-blown startup with nothing but grit and a killer WhatsApp network.",
+      "compatible_with": ["Insta Icon", "Tech-Savvy Jugaadu", "Desi Drama Star"],
+      "red_flag_type": "Workaholic Wanderer",
+      "avatar_animation": "https://lottie.host/c3df6c9f-73de-5c7g-0d57-9f9c9d9f9d9f/HustlerAnimation.json"
+    },
+    {
+      "id": 4,
+      "name": "Desi Drama Star",
+      "primary_trait": "extroversion",
+      "secondary_trait": "creativity",
+      "description": "You're the life of every party, bringing Bollywood-level drama and energy wherever you go. Your expressions are meme-worthy, and your dance moves are always on point. Everyone's got a story about you.",
+      "main_character_moment": "Stealing the show at a wedding sangeet with a dance routine you made up on the spot.",
+      "compatible_with": ["Insta Icon", "Chai & Chill Master", "Street Smart Hustler"],
+      "red_flag_type": "Over-the-Top Oversharer",
+      "avatar_animation": "https://lottie.host/d4e0e7a0-84ef-6d8h-1e68-0g0d0e0g0e0g/DanceAnimation.json"
+    },
+    {
+      "id": 5,
+      "name": "Tech-Savvy Jugaadu",
+      "primary_trait": "creativity",
+      "secondary_trait": "ambition",
+      "description": "You're the gadget guru who can hack anything—be it tech or life. You've got an app for everything and a fix for every glitch. Your innovative ideas keep your squad ahead of the curve.",
+      "main_character_moment": "Fixing everyone's Wi-Fi at a crucial IPL match viewing, becoming the hero of the night.",
+      "compatible_with": ["Street Smart Hustler", "Insta Icon", "Chai & Chill Master"],
+      "red_flag_type": "Tech-Obsessed Tinkerer",
+      "avatar_animation": "https://lottie.host/e5f1f8b1-95f0-7e9i-2f79-1h1e1f1h1f1h/TechAnimation.json"
+    }
+  ]

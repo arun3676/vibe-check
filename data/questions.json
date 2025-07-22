@@ -1,0 +1,316 @@
+{
+    "18-24": [
+      {
+        "id": 1,
+        "text": "Your post just went absolutely viral on Insta! What content had everyone losing their minds?",
+        "type": "creativity",
+        "options": [
+          "No cap, just dropped a fire meme that slaps 🔥",
+          "Posted my main character energy dancing ✨", 
+          "Shared a food hack that's absolutely sending me",
+          "Went off about life and it's giving therapy session",
+          "Wholesome squad content that hits different"
+        ]
+      },
+      {
+        "id": 2,
+        "text": "You get a free AI bestie for life that gets your chaotic energy. What's their main character role?",
+        "type": "ambition",
+        "options": [
+          "Making sure I stay hydrated and caffeinated ☕",
+          "Feeding me those creative genius moments",
+          "Being my personal comedian for the group chat",
+          "Scouting the vibes for epic hangout sessions", 
+          "Being my mental health support and mindfulness guru"
+        ]
+      },
+      {
+        "id": 3,
+        "text": "You found the most iconic glitch in some random app. Which discovery has you absolutely gagged?",
+        "type": "adaptability", 
+        "options": [
+          "Free premium filters? That's the dream right there",
+          "Full aesthetic control? Say less, I'm here for it",
+          "All the celebrity drama? I'm about to become TMZ",
+          "Instant fame without the algorithm stress",
+          "An AI bestie who gets my chaotic energy"
+        ]
+      },
+      {
+        "id": 4,
+        "text": "Squad trip planning time! Where are we about to have our main character moment?",
+        "type": "social",
+        "options": [
+          "Cozy mountain vibes with deep conversations",
+          "Food tour through the best street eats",
+          "Beach aesthetic with golden hour content", 
+          "Full Bollywood main character moment",
+          "Road trip with the perfect spotify playlist"
+        ]
+      },
+      {
+        "id": 5,
+        "text": "You woke up with the most iconic superpower that screams YOUR energy. What chaos are you serving?",
+        "type": "imagination",
+        "options": [
+          "Chef skills that leave everyone absolutely shook",
+          "Free food teleportation? That's peak efficiency",
+          "Mind reading just to serve better comebacks",
+          "Making every moment a TikTok dance opportunity",
+          "Infinite data when WiFi decides to be toxic"
+        ]
+      }
+    ],
+  
+    "25-34": [
+      {
+        "id": 1,
+        "text": "Your content just absolutely destroyed the algorithm and went viral. What was your winning formula?",
+        "type": "creativity",
+        "options": [
+          "Quick meme that absolutely destroyed everyone",
+          "Posted a dance reel that actually went hard",
+          "Shared a food hack that's genuinely useful",
+          "Therapeutic rant that resonated with everyone",
+          "Authentic squad content without the cringe"
+        ]
+      },
+      {
+        "id": 2,
+        "text": "You get an AI companion with actual personality for life. What's their specialty that makes your life better?",
+        "type": "ambition", 
+        "options": [
+          "Perfect work-life balance with strategic chai breaks",
+          "Creative breakthrough moments on demand",
+          "Comedy relief for the group chat stress",
+          "Curated experiences for maximum fun",
+          "Mental wellness coach for adulting stress"
+        ]
+      },
+      {
+        "id": 3,
+        "text": "You discovered the ultimate app glitch that actually changes everything. Which power-up do you choose?",
+        "type": "adaptability",
+        "options": [
+          "Professional-level photo editing for free",
+          "Complete creative control over my digital space",
+          "Entertainment industry insider knowledge",
+          "Social media growth without the hustle",
+          "AI companion with actual personality"
+        ]
+      },
+      {
+        "id": 4,
+        "text": "Time to plan the perfect getaway with your people. What experience are you curating?",
+        "type": "social",
+        "options": [
+          "Mountain retreat for meaningful connections",
+          "Authentic local food exploration",
+          "Coastal escape with Instagram moments",
+          "Full cultural celebration experience",
+          "Classic road trip with perfect soundtrack"
+        ]
+      },
+      {
+        "id": 5,
+        "text": "You gained the perfect superpower that matches your personality. What's your new signature move?",
+        "type": "imagination",
+        "options": [
+          "Master chef skills that silence the room",
+          "Strategic party hopping for the best food",
+          "Psychic roasting abilities for perfect timing",
+          "Spontaneous entertainment coordinator powers",
+          "Reliable internet when technology fails you"
+        ]
+      }
+    ],
+  
+    "35-44": [
+      {
+        "id": 1,
+        "text": "Your social media post struck a chord and gained serious traction. What content resonated so well?",
+        "type": "creativity",
+        "options": [
+          "Quick wit that creates shareable content",
+          "Dancing skills that impress everyone",
+          "Practical cooking tip that goes viral",
+          "Honest thoughts that connect with people",
+          "Genuine moments with good friends"
+        ]
+      },
+      {
+        "id": 2,
+        "text": "You receive an intelligent digital assistant for life. What would be their most valuable contribution?",
+        "type": "ambition",
+        "options": [
+          "Efficient scheduling with proper breaks",
+          "Creative inspiration when you need it",
+          "Humor that keeps everyone engaged",
+          "Great recommendations for social activities",
+          "Stress management and wellness support"
+        ]
+      },
+      {
+        "id": 3,
+        "text": "You found an interesting glitch in a popular app. Which discovery would be most useful?",
+        "type": "adaptability",
+        "options": [
+          "Professional photo editing capabilities",
+          "Full control over your digital experience",
+          "Celebrity news and entertainment updates",
+          "Social media success without the effort",
+          "Intelligent companion with real conversations"
+        ]
+      },
+      {
+        "id": 4,
+        "text": "You're organizing a memorable trip with your favorite people. What kind of experience sounds perfect?",
+        "type": "social",
+        "options": [
+          "Peaceful mountain getaway with quality time",
+          "Culinary adventure through local favorites",
+          "Relaxing beach vacation with photo opportunities",
+          "Festive celebration with music and dancing",
+          "Scenic drive with great music"
+        ]
+      },
+      {
+        "id": 5,
+        "text": "You discover you have a remarkable new ability that fits your personality perfectly. What can you do?",
+        "type": "imagination",
+        "options": [
+          "Exceptional cooking that amazes everyone",
+          "Efficient party attendance for the best food",
+          "Perfect timing for witty comebacks",
+          "Ability to make any situation fun",
+          "Reliable internet connection on demand"
+        ]
+      }
+    ],
+  
+    "45-54": [
+      {
+        "id": 1,
+        "text": "Your recent social media post gained wonderful engagement and was widely shared. What made it so appealing?",
+        "type": "creativity",
+        "options": [
+          "Clever humor that everyone appreciates",
+          "Impressive dancing that gets attention",
+          "Useful cooking trick that spreads quickly",
+          "Honest perspective that resonates",
+          "Authentic moments with close friends"
+        ]
+      },
+      {
+        "id": 2,
+        "text": "You're given a sophisticated digital helper for life. What would be their most appreciated function?",
+        "type": "ambition",
+        "options": [
+          "Well-organized schedule with proper breaks",
+          "Creative insights when inspiration strikes",
+          "Good humor that keeps conversations lively",
+          "Excellent suggestions for social gatherings",
+          "Wellness guidance and stress relief"
+        ]
+      },
+      {
+        "id": 3,
+        "text": "You discovered an interesting feature in a technology app. Which capability would you find most valuable?",
+        "type": "adaptability",
+        "options": [
+          "Advanced photo editing features",
+          "Complete personalization of your experience",
+          "Entertainment news and celebrity updates",
+          "Social media popularity without the work",
+          "Sophisticated AI companion for conversations"
+        ]
+      },
+      {
+        "id": 4,
+        "text": "You're planning a wonderful getaway with people you care about. What type of experience appeals to you?",
+        "type": "social",
+        "options": [
+          "Mountain retreat for deep conversations",
+          "Food tour of authentic local cuisine",
+          "Coastal vacation with beautiful scenery",
+          "Lively celebration with music and dancing",
+          "Leisurely drive with favorite music"
+        ]
+      },
+      {
+        "id": 5,
+        "text": "You realize you have gained a special talent that suits your character perfectly. What is your new gift?",
+        "type": "imagination",
+        "options": [
+          "Outstanding culinary skills that impress",
+          "Strategic socializing for the best refreshments",
+          "Perfect intuition for humorous responses",
+          "Natural ability to energize any situation",
+          "Dependable internet when technology fails"
+        ]
+      }
+    ],
+  
+    "55+": [
+      {
+        "id": 1,
+        "text": "Your thoughtful social media contribution received heartwarming responses from many people. What did you share?",
+        "type": "creativity",
+        "options": [
+          "Quick wit that creates memorable content",
+          "Skilled dancing that impresses viewers",
+          "Practical cooking method that catches on",
+          "Thoughtful commentary that connects",
+          "Quality time captured with good friends"
+        ]
+      },
+      {
+        "id": 2,
+        "text": "You receive an intelligent assistant companion for life. What would be their most meaningful role?",
+        "type": "ambition",
+        "options": [
+          "Thoughtful scheduling with regular tea breaks",
+          "Creative inspiration for new endeavors",
+          "Good humor that brightens conversations",
+          "Wonderful recommendations for social activities",
+          "Peaceful guidance and encouragement"
+        ]
+      },
+      {
+        "id": 3,
+        "text": "You found a helpful feature in a modern application. Which discovery would enhance your experience most?",
+        "type": "adaptability",
+        "options": [
+          "Professional photo enhancement tools",
+          "Full control over your digital interface",
+          "Celebrity news and entertainment information",
+          "Social media engagement without effort",
+          "Intelligent companion for meaningful chats"
+        ]
+      },
+      {
+        "id": 4,
+        "text": "You're arranging a delightful trip with cherished companions. What kind of experience would you enjoy most?",
+        "type": "social",
+        "options": [
+          "Tranquil mountain setting for heartfelt conversations",
+          "Culinary exploration of traditional favorites",
+          "Peaceful coastal retreat with photo opportunities",
+          "Joyful celebration with music and traditional dancing",
+          "Scenic journey with beloved music"
+        ]
+      },
+      {
+        "id": 5,
+        "text": "You discover you possess a wonderful new ability that reflects your character beautifully. What can you do?",
+        "type": "imagination",
+        "options": [
+          "Exceptional cooking that leaves everyone speechless",
+          "Efficient social visits for the best refreshments",
+          "Keen perception for perfectly timed humor",
+          "Natural talent for bringing joy to any situation",
+          "Reliable internet connection when needed most"
+        ]
+      }
+    ]
+  }
