@@ -57,6 +57,7 @@ def generate_ai_personality(name: str, age_group: str, answers: List[str], trait
     
     client = initialize_openai()
     if not client:
+        st.error("⚠️ AI analysis unavailable - OpenAI API key not configured")
         return None
     
     # Calculate intelligent introversion/extroversion percentage
@@ -65,68 +66,102 @@ def generate_ai_personality(name: str, age_group: str, answers: List[str], trait
     extroversion_percentage = max(0, min(100, 50 + (extroversion_score * 5)))
     introversion_percentage = 100 - extroversion_percentage
     
-    # Create detailed analysis of their specific choices
+    # Analyze their choices in detail
+    choice_analysis = ""
+    if len(answers) >= 5:
+        choice_analysis = f"""
+        DEEP CHOICE ANALYSIS for {name}:
+        📱 Content Choice: "{answers[0]}" - What does this say about their humor/interests?
+        🤖 AI Role: "{answers[1]}" - What relationship style do they prefer?
+        📲 Discovery: "{answers[2]}" - How do they explore and find new things?
+        ✈️ Travel: "{answers[3]}" - What experiences energize them?
+        ⚡ Power: "{answers[4]}" - What do they value most in life?
+        """
+    
+    # Create MUCH more detailed analysis prompt
     prompt = f"""
-    You are an expert personality analyst. Analyze {name}'s quiz responses to create an authentic personality reading.
-    
-    THEIR ACTUAL CHOICES:
-    1. Viral content: "{answers[0] if len(answers) > 0 else 'N/A'}"
-    2. AI companion role: "{answers[1] if len(answers) > 1 else 'N/A'}"
-    3. App discovery: "{answers[2] if len(answers) > 2 else 'N/A'}"
-    4. Trip preference: "{answers[3] if len(answers) > 3 else 'N/A'}"
-    5. Superpower choice: "{answers[4] if len(answers) > 4 else 'N/A'}"
-    
-    PERSONALITY ANALYSIS:
-    - Extroversion: {extroversion_score} → {extroversion_percentage}% extroverted, {introversion_percentage}% introverted
-    - Creativity: {traits.get('creativity', 0)} (higher = artistic/innovative)
-    - Ambition: {traits.get('ambition', 0)} (higher = driven/goal-oriented)
-    - Empathy: {traits.get('empathy', 0)} (higher = caring/supportive)
-    - Adaptability: {traits.get('adaptability', 0)} (higher = flexible/spontaneous)
-    
-    AGE GROUP: {age_group} - Use appropriate language and references
-    
-    Based on their ACTUAL choices and personality scores, create:
-    
-    1. **personality_name**: A unique 2-3 word name that reflects their specific choices (not generic types)
-    2. **essence**: One sentence describing their core nature based on what they actually chose
-    3. **hidden_trait**: Something surprising about them that emerges from their specific answer patterns (start with "You secretly...")
-    4. **superpower**: Their unique strength based on their choices
-    5. **vibe_check**: 2-4 words describing their energy
-    6. **compatibility_vibes**: 2-3 types of people who would appreciate their specific qualities
-    7. **personal_insight**: One personalized insight about their decision-making or values
-    8. **social_energy**: One line about their {extroversion_percentage}% extroversion / {introversion_percentage}% introversion based on their choices
-    
-    IMPORTANT: 
-    - Analyze their ACTUAL choices, don't use generic personality types
-    - If they chose creative options, reflect that. If they chose social options, reflect that.
-    - If they picked food/comfort choices, mention that. If tech/efficiency, mention that.
-    - Make the social_energy line specific to their choices (e.g., "You're 70% extroverted because you chose viral dancing and group trips")
-    - Make it feel like you truly understood their specific answers
-    - Use {age_group} appropriate language
-    
-    Return as JSON only.
+    You are a world-class personality analyst with deep psychological insight. Analyze {name}'s specific quiz choices to create a reading that feels like you actually understand them personally.
+
+    {choice_analysis}
+
+    PERSONALITY SCORING:
+    - Extroversion: {extroversion_score}/10 → {extroversion_percentage}% vs {introversion_percentage}% introverted
+    - Creativity: {traits.get('creativity', 0)}/10 (artistic, innovative thinking)
+    - Ambition: {traits.get('ambition', 0)}/10 (drive, goal-orientation)  
+    - Empathy: {traits.get('empathy', 0)}/10 (caring, emotional intelligence)
+    - Adaptability: {traits.get('adaptability', 0)}/10 (flexibility, spontaneity)
+
+    AGE GROUP: {age_group} - Use language/references they'd connect with
+
+    CREATE A UNIQUE READING (NOT GENERIC):
+
+    1. **personality_name**: Create a truly unique 2-3 word name that captures THEIR specific combination of choices. Examples: "Strategic Dream Chaser", "Gentle Adventure Seeker", "Bold Comfort Creator" - make it SPECIFIC to their answers!
+
+    2. **essence**: One sentence that shows you analyzed their ACTUAL choices, not just traits. Reference what they chose!
+
+    3. **hidden_trait**: Start with "You secretly..." and reveal something that emerges from the COMBINATION of their choices that might surprise them.
+
+    4. **superpower**: Based on their SPECIFIC answers, what's their unique strength? Not generic - tied to what they actually picked.
+
+    5. **vibe_check**: 2-4 words that capture their energy based on their choices.
+
+    6. **compatibility_vibes**: Who would vibe with someone who made THESE specific choices? Be specific.
+
+    7. **personal_insight**: A specific insight about their decision-making pattern that shows you understood their choices.
+
+    8. **social_energy**: Explain their {extroversion_percentage}%/{introversion_percentage}% split by referencing their ACTUAL choices. "You're {extroversion_percentage}% extroverted because you chose [specific choice] but also need alone time because you picked [other choice]"
+
+    CRITICAL RULES:
+    - Reference their ACTUAL choices in multiple responses
+    - Make personality_name truly unique to their combination
+    - Don't use generic phrases like "unique individual" 
+    - Each reading should be completely different based on different choices
+    - Show you understood the nuances of what they picked
+
+    Return ONLY valid JSON:
+    {{
+        "personality_name": "...",
+        "essence": "...",
+        "hidden_trait": "...",
+        "superpower": "...", 
+        "vibe_check": "...",
+        "compatibility_vibes": ["...", "..."],
+        "personal_insight": "...",
+        "social_energy": "..."
+    }}
     """
     
     try:
+        st.write(f"🔮 Analyzing {name}'s choices with AI...")
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are a brilliant personality analyst who creates authentic readings based on specific user choices, not generic types."},
+                {"role": "system", "content": "You are a brilliant personality analyst who creates authentic, personalized readings by deeply analyzing specific user choices. Never give generic responses."},
                 {"role": "user", "content": prompt}
             ],
-            max_tokens=450,
-            temperature=0.7  # Balanced creativity
+            max_tokens=600,
+            temperature=0.8  # Higher creativity for unique responses
         )
         
-        result = response.choices[0].message.content
+        result = response.choices[0].message.content.strip()
+        st.write(f"✅ AI analysis complete!")
+        
+        # Clean the response to extract JSON
+        if "```json" in result:
+            result = result.split("```json")[1].split("```")[0].strip()
+        elif "```" in result:
+            result = result.split("```")[1].strip()
         
         try:
             parsed = json.loads(result)
             # Add calculated percentages to the result
             parsed['extroversion_percentage'] = extroversion_percentage
             parsed['introversion_percentage'] = introversion_percentage
+            st.write(f"🎯 Created unique personality: {parsed.get('personality_name', 'Unknown')}")
             return parsed
         except json.JSONDecodeError as json_error:
+            st.error(f"JSON parsing failed: {json_error}")
+            st.write(f"Raw AI response: {result}")
             # Fallback parsing if JSON fails
             fallback_result = parse_ai_response_smart(result)
             fallback_result['extroversion_percentage'] = extroversion_percentage
@@ -135,7 +170,127 @@ def generate_ai_personality(name: str, age_group: str, answers: List[str], trait
             
     except Exception as e:
         st.error(f"AI analysis failed: {e}")
+        st.write("🔧 Check your OpenAI API key in Streamlit secrets")
         return None
+
+# Smart fallback based on actual user choices
+def generate_smart_fallback(name: str, age_group: str, answers: List[str], traits: Dict[str, int]) -> Dict[str, Any]:
+    """Generate personality based on actual choices when AI fails"""
+    
+    extroversion_score = traits.get('extroversion', 0)
+    extroversion_percentage = max(0, min(100, 50 + (extroversion_score * 5)))
+    introversion_percentage = 100 - extroversion_percentage
+    
+    # Analyze their actual choices to create unique personalities
+    choice_patterns = {
+        "creative": 0,
+        "social": 0, 
+        "adventure": 0,
+        "comfort": 0,
+        "tech": 0
+    }
+    
+    # Score based on actual answers
+    if len(answers) >= 5:
+        # Analyze each choice
+        for answer in answers:
+            answer_lower = answer.lower()
+            if any(word in answer_lower for word in ['art', 'dance', 'music', 'creative', 'meme', 'funny']):
+                choice_patterns["creative"] += 1
+            if any(word in answer_lower for word in ['friend', 'group', 'party', 'social', 'viral', 'community']):
+                choice_patterns["social"] += 1
+            if any(word in answer_lower for word in ['adventure', 'explore', 'travel', 'spontaneous', 'mystery']):
+                choice_patterns["adventure"] += 1
+            if any(word in answer_lower for word in ['comfort', 'cozy', 'chill', 'relax', 'home', 'safe']):
+                choice_patterns["comfort"] += 1
+            if any(word in answer_lower for word in ['tech', 'ai', 'app', 'efficiency', 'smart', 'organize']):
+                choice_patterns["tech"] += 1
+    
+    # Find dominant patterns
+    dominant_trait = max(choice_patterns, key=choice_patterns.get)
+    secondary_trait = sorted(choice_patterns.items(), key=lambda x: x[1], reverse=True)[1][0]
+    
+    # Create unique personalities based on combinations
+    personality_matrix = {
+        ("creative", "social"): {
+            "name": "Artistic Social Butterfly",
+            "essence": f"You blend creativity with social connection, choosing {answers[0] if answers else 'creative content'} because you love sharing laughs and inspiration.",
+            "hidden_trait": "You secretly use humor and art as your way of bringing people together.",
+            "superpower": "Making others feel seen through creative expression",
+            "vibe": "Inspiring and magnetic"
+        },
+        ("creative", "adventure"): {
+            "name": "Visionary Explorer", 
+            "essence": f"Your choice of {answers[0] if answers else 'adventure'} shows you see life as a canvas to paint with bold experiences.",
+            "hidden_trait": "You secretly document your adventures in creative ways others never notice.",
+            "superpower": "Turning everyday moments into epic stories",
+            "vibe": "Bold and imaginative"
+        },
+        ("social", "comfort"): {
+            "name": "Community Comfort Creator",
+            "essence": f"You picked {answers[3] if len(answers) > 3 else 'cozy experiences'} because you believe the best connections happen in comfortable spaces.",
+            "hidden_trait": "You secretly orchestrate gatherings that help shy people feel included.",
+            "superpower": "Creating spaces where everyone feels like they belong",
+            "vibe": "Warm and inclusive"
+        },
+        ("tech", "adventure"): {
+            "name": "Digital Pioneer",
+            "essence": f"Your {answers[2] if len(answers) > 2 else 'tech-savvy'} approach shows you use technology to enhance real-world adventures.",
+            "hidden_trait": "You secretly find the most efficient routes to spontaneous fun.",
+            "superpower": "Bridging digital innovation with authentic experiences", 
+            "vibe": "Forward-thinking and dynamic"
+        },
+        ("comfort", "creative"): {
+            "name": "Cozy Creator",
+            "essence": f"You chose {answers[4] if len(answers) > 4 else 'comfort'} because you know the best ideas come from peaceful, inspiring spaces.",
+            "hidden_trait": "You secretly create beautiful environments that spark others' creativity.",
+            "superpower": "Making ordinary spaces feel magical and inspiring",
+            "vibe": "Nurturing and artistic"
+        }
+    }
+    
+    # Get personality or create default
+    key = (dominant_trait, secondary_trait)
+    if key not in personality_matrix:
+        key = (secondary_trait, dominant_trait)
+    
+    if key in personality_matrix:
+        personality_data = personality_matrix[key]
+    else:
+        # Super fallback
+        personality_data = {
+            "name": f"{dominant_trait.title()} {secondary_trait.title()} Spirit",
+            "essence": f"Your choices reveal someone who values both {dominant_trait} and {secondary_trait} in unique ways.",
+            "hidden_trait": f"You secretly balance {dominant_trait} energy with {secondary_trait} wisdom.",
+            "superpower": f"Combining {dominant_trait} instincts with {secondary_trait} approach",
+            "vibe": f"{dominant_trait.title()} yet {secondary_trait}"
+        }
+    
+    # Build compatibility based on choices
+    compatibility = []
+    if choice_patterns["social"] > 1:
+        compatibility.append("Social Connectors")
+    if choice_patterns["creative"] > 1:  
+        compatibility.append("Creative Souls")
+    if choice_patterns["adventure"] > 1:
+        compatibility.append("Adventure Seekers")
+    if choice_patterns["tech"] > 0:
+        compatibility.append("Tech Enthusiasts")
+    if not compatibility:
+        compatibility = ["Open-minded People", "Authentic Spirits"]
+    
+    return {
+        "personality_name": personality_data["name"],
+        "essence": personality_data["essence"],
+        "hidden_trait": personality_data["hidden_trait"],
+        "superpower": personality_data["superpower"],
+        "vibe_check": personality_data["vibe"],
+        "compatibility_vibes": compatibility[:2],
+        "personal_insight": f"Your combination of {answers[0] if answers else 'thoughtful'} and {answers[-1] if answers else 'balanced'} choices shows someone who thinks deeply about their preferences.",
+        "social_energy": f"You're {extroversion_percentage}% extroverted because you chose {answers[1] if len(answers) > 1 else 'social options'}, but also need {introversion_percentage}% introversion to recharge your creative energy.",
+        "extroversion_percentage": extroversion_percentage,
+        "introversion_percentage": introversion_percentage
+    }
 
 # ADD this smart fallback parser:
 def parse_ai_response_smart(text: str) -> Dict[str, Any]:
@@ -1213,19 +1368,13 @@ def render_ai_loading_page():
         st.session_state.page = 'ai_results'
         st.rerun()
     else:
-        # Create a simple fallback personality instead of going to old results
-        fallback_personality = {
-            "personality_name": "Cosmic Innovator",
-            "essence": "You're a unique individual with your own special cosmic energy.",
-            "hidden_trait": "You secretly have more potential than you realize.",
-            "superpower": "Turning challenges into opportunities",
-            "vibe_check": "Creative and authentic",
-            "compatibility_vibes": ["Fellow Innovators", "Creative Souls"],
-            "personal_insight": "Your unique choices show a thoughtful approach to life.",
-            "social_energy": "You balance social energy with personal reflection perfectly.",
-            "extroversion_percentage": 60,
-            "introversion_percentage": 40
-        }
+        # Create intelligent fallback based on actual choices
+        fallback_personality = generate_smart_fallback(
+            st.session_state.name,
+            st.session_state.age_group_label, 
+            st.session_state.answers,
+            st.session_state.traits
+        )
         st.session_state.ai_personality = fallback_personality
         st.session_state.page = 'ai_results'
         st.rerun()
